@@ -2,10 +2,8 @@ package com.mracipayam.newsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.mracipayam.newsapp.R
 import com.mracipayam.newsapp.databinding.ActivityNewsBinding
 
 class NewsActivity : AppCompatActivity() {
@@ -26,5 +24,6 @@ class NewsActivity : AppCompatActivity() {
     }
 
     //https://newsapi.org/v2/everything?q=tesla&from=2023-03-06&sortBy=publishedAt&apiKey=25000c3d31184555900f727ea06959f7
+
 
 }
