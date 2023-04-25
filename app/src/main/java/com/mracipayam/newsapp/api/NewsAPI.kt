@@ -1,6 +1,6 @@
 package com.mracipayam.newsapp.api
 
-import com.mracipayam.newsapp.NewsResponse
+import com.mracipayam.newsapp.models.NewsResponse
 import com.mracipayam.newsapp.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

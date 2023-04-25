@@ -1,4 +1,4 @@
-package com.mracipayam.newsapp
+package com.mracipayam.newsapp.models
 
 data class Source(
     val id: String,
