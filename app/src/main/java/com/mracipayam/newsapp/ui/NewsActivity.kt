@@ -2,13 +2,18 @@ package com.mracipayam.newsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.mracipayam.newsapp.databinding.ActivityNewsBinding
+import com.mracipayam.newsapp.db.ArticleDatabase
+import com.mracipayam.newsapp.repository.NewsRepository
 
 class NewsActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityNewsBinding
+    lateinit var viewModel: NewsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -16,9 +21,12 @@ class NewsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-//        setContentView(R.layout.activity_news)
         val navController = binding.newsNavHostFragment.getFragment<NavHostFragment>().navController
         binding.bottomNavigationView.setupWithNavController(navController)
+
+        val newsRepository = NewsRepository(ArticleDatabase(this))
+        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        viewModel = ViewModelProvider(this,viewModelProviderFactory).get(NewsViewModel::class.java)
 
 
     }

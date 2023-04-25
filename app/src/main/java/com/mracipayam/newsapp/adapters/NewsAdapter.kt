@@ -28,6 +28,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
+
         return ArticleViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_article_preview,
@@ -36,12 +37,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             )
         )
     }
-
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
+            //TODO : Replace findViewById with viewBinding
             Glide.with(this).load(article.urlToImage).into(findViewById(R.id.ivArticleImage))
-            findViewById<TextView>(R.id.tvSource).text = article.source?.name
+            findViewById<TextView>(R.id.tvSource).text = article.source.name
             findViewById<TextView>(R.id.tvTitle).text = article.title
             findViewById<TextView>(R.id.tvDescription).text = article.description
             findViewById<TextView>(R.id.tvPublishedAt).text = article.publishedAt
