@@ -13,7 +13,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.mracipayam.newsapp.R
 import com.mracipayam.newsapp.adapters.NewsAdapter
 import com.mracipayam.newsapp.databinding.FragmentSavedNewsBinding
-import com.mracipayam.newsapp.databinding.FragmentSearchNewsBinding
 import com.mracipayam.newsapp.ui.NewsActivity
 import com.mracipayam.newsapp.ui.NewsViewModel
 
@@ -29,10 +28,9 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSavedNewsBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
